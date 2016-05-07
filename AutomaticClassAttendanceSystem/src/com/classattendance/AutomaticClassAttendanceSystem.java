@@ -1,9 +1,9 @@
 package com.classattendance;
 
 //import java.io.BufferedReader;
-import java.io.InputStream;
 //import java.io.InputStreamReader;
 
+import java.io.InputStream;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -119,13 +119,17 @@ public class AutomaticClassAttendanceSystem {
 	     	String first = (String) jsonObject.get("first");
 	     	String last = (String) jsonObject.get("last");
 	     	String sid = (String) jsonObject.get("sid");
-  	 
+	     	String email = (String) jsonObject.get("email");
+	     	String phoneId = (String) jsonObject.get("phoneId");
+	     	
 //	        document.put("first", "Jelson");
 //	        document.put("last", "Santos");
 //	        document.put("sid", "1234");
 	        document.put("first", first);
 	        document.put("last", last);
 	        document.put("sid", sid);
+	        document.put("email", email);
+	        document.put("phoneId", phoneId);
 	        collection.insert(document);
 
 	     	DBCursor cursorDoc = collection.find();
@@ -185,6 +189,32 @@ public class AutomaticClassAttendanceSystem {
         // Now connect to your databases
 		
 		return Response.status(204).entity(outStr).build();
+	}
+	
+	public static DBObject getDataFromDB() {
+		MongoClient mongoClient;
+		String outStr = "";
+		
+		try {
+			mongoClient = new MongoClient( "localhost" , 27017 );
+			DB db = mongoClient.getDB( "AttendanceDB" );
+	        System.out.println("AttendanceDB READ: Connect to database successfully");
+	        //boolean auth = db.authenticate(myUserName, myPassword);
+	        //System.out.println("Authentication: "+auth);
+	        DBCollection collection = db.getCollection("studentColl");
+	        BasicDBObject whereQuery = new BasicDBObject();
+			whereQuery.put("phoneId", "123456789");
+			DBCursor cursor = collection.find(whereQuery);
+			DBObject updateDocument = null;
+			updateDocument = cursor.next();
+			System.out.println("Match: " +updateDocument);
+			//System.out.println("Match: " + outStr);
+			return updateDocument;
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public String getIncomingData(InputStream incomingData) {

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Sensor Data Collector</title>
+<title>Server Details</title>
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -13,18 +13,21 @@
 
 $(function () {
     function callServlet() {
-    	var first = $("#first").val(); //document.getElementById('number1').value;
-        var last = $("#last").val(); //document.getElementById('number2').value;
-        var sid = $("#sid").val(); //document.getElementById('number2').value;
+    	//var first = $("#first").val(); //document.getElementById('number1').value;
+        //var last = $("#last").val(); //document.getElementById('number2').value;
+        //var sid = $("#sid").val(); //document.getElementById('number2').value;
+        var d = new Date();
+        var timeStamp = d.toUTCString();
+        var sid ="1234";
+        console.log(timeStamp);
         var myData = {
-                "first": first,
-                "last": last,
-                "sid": sid,
-                "email": "example@example.com" ,
-                "phoneId": "123456789"
+                "timeIN": timeStamp ,
+                "phoneId": "123456789" ,
+                "location": "363363347373773" ,
+                "sid": sid
         };
         console.log(myData);
-        var url_post = 'http://localhost:8080/AutomaticClassAttendanceSystem/sensor/class/student/' + sid;
+        var url_post = 'http://localhost:8080/AutomaticClassAttendanceSystem/sensor/class/section/' + sid;
         console.log(url_post);
         $.ajax({
             type: "POST",
@@ -78,9 +81,6 @@ $(function () {
 </script>
 <h3>Please enter a number to Square : </h3>
 
-<input style="width: 33px; margin-left: 2px; " type="text" id="first" name="first">
-<input style="width: 33px; margin-left: 2px;" type="text" id="last" name="last">
-<input style="width: 33px; margin-left: 2px; " type="text" id="sid" name="sid">
 <input type="button" id="calcBtn" value="Calc">
 <input style="font-family: cursive; border:none" type="text" id="result" />
 <input style="font-family: cursive; border:none; width: 100%" type="text" value="" id="resultText" />
