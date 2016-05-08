@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		560447611CDE7E0A003CC148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560447601CDE7E0A003CC148 /* AppDelegate.swift */; };
+		560447631CDE7E0A003CC148 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560447621CDE7E0A003CC148 /* ViewController.swift */; };
+		560447661CDE7E0A003CC148 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560447641CDE7E0A003CC148 /* Main.storyboard */; };
+		560447681CDE7E0B003CC148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 560447671CDE7E0B003CC148 /* Assets.xcassets */; };
+		5604476B1CDE7E0B003CC148 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560447691CDE7E0B003CC148 /* LaunchScreen.storyboard */; };
+		560447761CDE7E0B003CC148 /* UIWebView_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560447751CDE7E0B003CC148 /* UIWebView_ExampleTests.swift */; };
+		560447811CDE7E0B003CC148 /* UIWebView_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560447801CDE7E0B003CC148 /* UIWebView_ExampleUITests.swift */; };
+		560447AD1CDEAC3E003CC148 /* cordova-js-src in Resources */ = {isa = PBXBuildFile; fileRef = 560447A21CDEAC3E003CC148 /* cordova-js-src */; };
+		560447AE1CDEAC3E003CC148 /* css in Resources */ = {isa = PBXBuildFile; fileRef = 560447A31CDEAC3E003CC148 /* css */; };
+		560447AF1CDEAC3E003CC148 /* img in Resources */ = {isa = PBXBuildFile; fileRef = 560447A41CDEAC3E003CC148 /* img */; };
+		560447B01CDEAC3E003CC148 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 560447A51CDEAC3E003CC148 /* js */; };
+		560447B11CDEAC3E003CC148 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 560447A61CDEAC3E003CC148 /* res */; };
+		560447B21CDEAC3E003CC148 /* spec in Resources */ = {isa = PBXBuildFile; fileRef = 560447A71CDEAC3E003CC148 /* spec */; };
+		560447B31CDEAC3E003CC148 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 560447A81CDEAC3E003CC148 /* index.html */; };
+		560447B41CDEAC3E003CC148 /* cordova_plugins.js in Resources */ = {isa = PBXBuildFile; fileRef = 560447A91CDEAC3E003CC148 /* cordova_plugins.js */; };
+		560447B51CDEAC3E003CC148 /* cordova.js in Resources */ = {isa = PBXBuildFile; fileRef = 560447AA1CDEAC3E003CC148 /* cordova.js */; };
+		560447B61CDEAC3E003CC148 /* back_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 560447AB1CDEAC3E003CC148 /* back_up.png */; };
+		560447B71CDEAC3E003CC148 /* spec.html in Resources */ = {isa = PBXBuildFile; fileRef = 560447AC1CDEAC3E003CC148 /* spec.html */; };
+		560447BF1CDFE6A5003CC148 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 560447BE1CDFE6A5003CC148 /* icon.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		560447721CDE7E0B003CC148 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 560447551CDE7E0A003CC148 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5604475C1CDE7E0A003CC148;
+			remoteInfo = "UIWebView Example";
+		};
+		5604477D1CDE7E0B003CC148 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 560447551CDE7E0A003CC148 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5604475C1CDE7E0A003CC148;
+			remoteInfo = "UIWebView Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5604475D1CDE7E0A003CC148 /* School Management System.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "School Management System.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		560447601CDE7E0A003CC148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		560447621CDE7E0A003CC148 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		560447651CDE7E0A003CC148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		560447671CDE7E0B003CC148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5604476A1CDE7E0B003CC148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5604476C1CDE7E0B003CC148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		560447711CDE7E0B003CC148 /* School Management System.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "School Management System.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		560447751CDE7E0B003CC148 /* UIWebView_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWebView_ExampleTests.swift; sourceTree = "<group>"; };
+		560447771CDE7E0B003CC148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5604477C1CDE7E0B003CC148 /* School Management System.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "School Management System.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		560447801CDE7E0B003CC148 /* UIWebView_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWebView_ExampleUITests.swift; sourceTree = "<group>"; };
+		560447821CDE7E0B003CC148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		560447A21CDEAC3E003CC148 /* cordova-js-src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "cordova-js-src"; path = "../../../../Downloads/www/cordova-js-src"; sourceTree = "<group>"; };
+		560447A31CDEAC3E003CC148 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = ../../../../Downloads/www/css; sourceTree = "<group>"; };
+		560447A41CDEAC3E003CC148 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; name = img; path = ../../../../Downloads/www/img; sourceTree = "<group>"; };
+		560447A51CDEAC3E003CC148 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js; path = ../../../../Downloads/www/js; sourceTree = "<group>"; };
+		560447A61CDEAC3E003CC148 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = ../../../../Downloads/www/res; sourceTree = "<group>"; };
+		560447A71CDEAC3E003CC148 /* spec */ = {isa = PBXFileReference; lastKnownFileType = folder; name = spec; path = ../../../../Downloads/www/spec; sourceTree = "<group>"; };
+		560447A81CDEAC3E003CC148 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = ../../../../Downloads/www/index.html; sourceTree = "<group>"; };
+		560447A91CDEAC3E003CC148 /* cordova_plugins.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = cordova_plugins.js; path = ../../../../Downloads/www/cordova_plugins.js; sourceTree = "<group>"; };
+		560447AA1CDEAC3E003CC148 /* cordova.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = cordova.js; path = ../../../../Downloads/www/cordova.js; sourceTree = "<group>"; };
+		560447AB1CDEAC3E003CC148 /* back_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_up.png; path = ../../../../Downloads/www/back_up.png; sourceTree = "<group>"; };
+		560447AC1CDEAC3E003CC148 /* spec.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = spec.html; path = ../../../../Downloads/www/spec.html; sourceTree = "<group>"; };
+		560447BE1CDFE6A5003CC148 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../../Downloads/icon.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5604475A1CDE7E0A003CC148 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5604476E1CDE7E0B003CC148 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		560447791CDE7E0B003CC148 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		560447541CDE7E0A003CC148 = {
+			isa = PBXGroup;
+			children = (
+				5604475F1CDE7E0A003CC148 /* UIWebView Example */,
+				560447741CDE7E0B003CC148 /* UIWebView ExampleTests */,
+				5604477F1CDE7E0B003CC148 /* UIWebView ExampleUITests */,
+				5604475E1CDE7E0A003CC148 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5604475E1CDE7E0A003CC148 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5604475D1CDE7E0A003CC148 /* School Management System.app */,
+				560447711CDE7E0B003CC148 /* School Management System.xctest */,
+				5604477C1CDE7E0B003CC148 /* School Management System.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5604475F1CDE7E0A003CC148 /* UIWebView Example */ = {
+			isa = PBXGroup;
+			children = (
+				560447A11CDEAC17003CC148 /* www */,
+				560447601CDE7E0A003CC148 /* AppDelegate.swift */,
+				560447621CDE7E0A003CC148 /* ViewController.swift */,
+				560447641CDE7E0A003CC148 /* Main.storyboard */,
+				560447671CDE7E0B003CC148 /* Assets.xcassets */,
+				560447691CDE7E0B003CC148 /* LaunchScreen.storyboard */,
+				5604476C1CDE7E0B003CC148 /* Info.plist */,
+			);
+			path = "UIWebView Example";
+			sourceTree = "<group>";
+		};
+		560447741CDE7E0B003CC148 /* UIWebView ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				560447751CDE7E0B003CC148 /* UIWebView_ExampleTests.swift */,
+				560447771CDE7E0B003CC148 /* Info.plist */,
+			);
+			path = "UIWebView ExampleTests";
+			sourceTree = "<group>";
+		};
+		5604477F1CDE7E0B003CC148 /* UIWebView ExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				560447801CDE7E0B003CC148 /* UIWebView_ExampleUITests.swift */,
+				560447821CDE7E0B003CC148 /* Info.plist */,
+			);
+			path = "UIWebView ExampleUITests";
+			sourceTree = "<group>";
+		};
+		560447A11CDEAC17003CC148 /* www */ = {
+			isa = PBXGroup;
+			children = (
+				560447BE1CDFE6A5003CC148 /* icon.png */,
+				560447A21CDEAC3E003CC148 /* cordova-js-src */,
+				560447A31CDEAC3E003CC148 /* css */,
+				560447A41CDEAC3E003CC148 /* img */,
+				560447A51CDEAC3E003CC148 /* js */,
+				560447A61CDEAC3E003CC148 /* res */,
+				560447A71CDEAC3E003CC148 /* spec */,
+				560447A81CDEAC3E003CC148 /* index.html */,
+				560447A91CDEAC3E003CC148 /* cordova_plugins.js */,
+				560447AA1CDEAC3E003CC148 /* cordova.js */,
+				560447AB1CDEAC3E003CC148 /* back_up.png */,
+				560447AC1CDEAC3E003CC148 /* spec.html */,
+			);
+			name = www;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5604475C1CDE7E0A003CC148 /* School Management System */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 560447851CDE7E0B003CC148 /* Build configuration list for PBXNativeTarget "School Management System" */;
+			buildPhases = (
+				560447591CDE7E0A003CC148 /* Sources */,
+				5604475A1CDE7E0A003CC148 /* Frameworks */,
+				5604475B1CDE7E0A003CC148 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "School Management System";
+			productName = "UIWebView Example";
+			productReference = 5604475D1CDE7E0A003CC148 /* School Management System.app */;
+			productType = "com.apple.product-type.application";
+		};
+		560447701CDE7E0B003CC148 /* School Management SystemTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 560447881CDE7E0B003CC148 /* Build configuration list for PBXNativeTarget "School Management SystemTests" */;
+			buildPhases = (
+				5604476D1CDE7E0B003CC148 /* Sources */,
+				5604476E1CDE7E0B003CC148 /* Frameworks */,
+				5604476F1CDE7E0B003CC148 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				560447731CDE7E0B003CC148 /* PBXTargetDependency */,
+			);
+			name = "School Management SystemTests";
+			productName = "UIWebView ExampleTests";
+			productReference = 560447711CDE7E0B003CC148 /* School Management System.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5604477B1CDE7E0B003CC148 /* School Management SystemUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5604478B1CDE7E0B003CC148 /* Build configuration list for PBXNativeTarget "School Management SystemUITests" */;
+			buildPhases = (
+				560447781CDE7E0B003CC148 /* Sources */,
+				560447791CDE7E0B003CC148 /* Frameworks */,
+				5604477A1CDE7E0B003CC148 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5604477E1CDE7E0B003CC148 /* PBXTargetDependency */,
+			);
+			name = "School Management SystemUITests";
+			productName = "UIWebView ExampleUITests";
+			productReference = 5604477C1CDE7E0B003CC148 /* School Management System.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		560447551CDE7E0A003CC148 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Jelson Santos";
+				TargetAttributes = {
+					5604475C1CDE7E0A003CC148 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					560447701CDE7E0B003CC148 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 5604475C1CDE7E0A003CC148;
+					};
+					5604477B1CDE7E0B003CC148 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 5604475C1CDE7E0A003CC148;
+					};
+				};
+			};
+			buildConfigurationList = 560447581CDE7E0A003CC148 /* Build configuration list for PBXProject "School Management System" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 560447541CDE7E0A003CC148;
+			productRefGroup = 5604475E1CDE7E0A003CC148 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5604475C1CDE7E0A003CC148 /* School Management System */,
+				560447701CDE7E0B003CC148 /* School Management SystemTests */,
+				5604477B1CDE7E0B003CC148 /* School Management SystemUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5604475B1CDE7E0A003CC148 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				560447B21CDEAC3E003CC148 /* spec in Resources */,
+				5604476B1CDE7E0B003CC148 /* LaunchScreen.storyboard in Resources */,
+				560447B31CDEAC3E003CC148 /* index.html in Resources */,
+				560447BF1CDFE6A5003CC148 /* icon.png in Resources */,
+				560447AF1CDEAC3E003CC148 /* img in Resources */,
+				560447AD1CDEAC3E003CC148 /* cordova-js-src in Resources */,
+				560447B11CDEAC3E003CC148 /* res in Resources */,
+				560447B61CDEAC3E003CC148 /* back_up.png in Resources */,
+				560447AE1CDEAC3E003CC148 /* css in Resources */,
+				560447681CDE7E0B003CC148 /* Assets.xcassets in Resources */,
+				560447B41CDEAC3E003CC148 /* cordova_plugins.js in Resources */,
+				560447B01CDEAC3E003CC148 /* js in Resources */,
+				560447661CDE7E0A003CC148 /* Main.storyboard in Resources */,
+				560447B71CDEAC3E003CC148 /* spec.html in Resources */,
+				560447B51CDEAC3E003CC148 /* cordova.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5604476F1CDE7E0B003CC148 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5604477A1CDE7E0B003CC148 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		560447591CDE7E0A003CC148 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				560447631CDE7E0A003CC148 /* ViewController.swift in Sources */,
+				560447611CDE7E0A003CC148 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5604476D1CDE7E0B003CC148 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				560447761CDE7E0B003CC148 /* UIWebView_ExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		560447781CDE7E0B003CC148 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				560447811CDE7E0B003CC148 /* UIWebView_ExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		560447731CDE7E0B003CC148 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5604475C1CDE7E0A003CC148 /* School Management System */;
+			targetProxy = 560447721CDE7E0B003CC148 /* PBXContainerItemProxy */;
+		};
+		5604477E1CDE7E0B003CC148 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5604475C1CDE7E0A003CC148 /* School Management System */;
+			targetProxy = 5604477D1CDE7E0B003CC148 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		560447641CDE7E0A003CC148 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				560447651CDE7E0A003CC148 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		560447691CDE7E0B003CC148 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5604476A1CDE7E0B003CC148 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		560447831CDE7E0B003CC148 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		560447841CDE7E0B003CC148 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		560447861CDE7E0B003CC148 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "UIWebView Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jsantos.UIWebView-Example";
+				PRODUCT_NAME = "School Management System";
+			};
+			name = Debug;
+		};
+		560447871CDE7E0B003CC148 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "UIWebView Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jsantos.UIWebView-Example";
+				PRODUCT_NAME = "School Management System";
+			};
+			name = Release;
+		};
+		560447891CDE7E0B003CC148 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "UIWebView ExampleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jsantos.UIWebView-ExampleTests";
+				PRODUCT_NAME = "School Management System";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/School Management System.app/School Management System";
+			};
+			name = Debug;
+		};
+		5604478A1CDE7E0B003CC148 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "UIWebView ExampleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jsantos.UIWebView-ExampleTests";
+				PRODUCT_NAME = "School Management System";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/School Management System.app/School Management System";
+			};
+			name = Release;
+		};
+		5604478C1CDE7E0B003CC148 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "UIWebView ExampleUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jsantos.UIWebView-ExampleUITests";
+				PRODUCT_NAME = "School Management System";
+				TEST_TARGET_NAME = "UIWebView Example";
+			};
+			name = Debug;
+		};
+		5604478D1CDE7E0B003CC148 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "UIWebView ExampleUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jsantos.UIWebView-ExampleUITests";
+				PRODUCT_NAME = "School Management System";
+				TEST_TARGET_NAME = "UIWebView Example";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		560447581CDE7E0A003CC148 /* Build configuration list for PBXProject "School Management System" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				560447831CDE7E0B003CC148 /* Debug */,
+				560447841CDE7E0B003CC148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		560447851CDE7E0B003CC148 /* Build configuration list for PBXNativeTarget "School Management System" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				560447861CDE7E0B003CC148 /* Debug */,
+				560447871CDE7E0B003CC148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		560447881CDE7E0B003CC148 /* Build configuration list for PBXNativeTarget "School Management SystemTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				560447891CDE7E0B003CC148 /* Debug */,
+				5604478A1CDE7E0B003CC148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5604478B1CDE7E0B003CC148 /* Build configuration list for PBXNativeTarget "School Management SystemUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5604478C1CDE7E0B003CC148 /* Debug */,
+				5604478D1CDE7E0B003CC148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 560447551CDE7E0A003CC148 /* Project object */;
+}
