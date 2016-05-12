@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/AutomaticClassAttendanceSystem/css/app.css">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="login">
+  <div class="heading">
+    <h2>Sign in</h2>
+    <form onsubmit="return validate()" name="login">
+
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input type="text" class="form-control" placeholder="Username" id="username">
+          </div>
+
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+          <input type="password" class="form-control" placeholder="Password" id="password">
+        </div>
+
+        <button type="submit" class="float">Login</button>
+       </form>
+ 		</div>
+ </div>
+ 
+ 
+<!--  <script>
+function check(form)
+{
+ if(form.username.value == "admin" && form.password.value == "admin")
+  {
+    window.location="/AutomaticClassAttendanceSystem/index2.jsp";//window.open('index2.jsp');
+  }
+ else
+ {
+   alert("Error Password or Username")/*displays error message*/
+  }
+}
+</script> -->
+<script>
+function validate(){
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	if ( username == "admin" && password == "admin"){
+		//alert ("Login successfully");
+		window.location = "/AutomaticClassAttendanceSystem/attendance.html";//"/AutomaticClassAttendanceSystem/index2.jsp"; // Redirecting to other page.
+		return false;
+	}else{
+		alert("Incorrect Password or Username")/*displays error message*/
+	}
+}
+
+</script>
+
+</body>
+</html>

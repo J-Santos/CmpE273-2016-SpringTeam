@@ -1,13 +1,11 @@
 package com.classattendance;
 
-//import java.io.BufferedReader;
-//import java.io.InputStreamReader;
-
 import java.io.InputStream;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -16,84 +14,132 @@ import com.mongodb.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-//import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-//import com.mongodb.util.JSON;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
-import javax.ws.rs.core.MediaType;
  
 @Path("/class")
 public class AutomaticClassAttendanceSystem {
-	//private String outStr;
-	@Path("student/{sid}")
+	
+	@Path("student")
 	@GET
+	@Consumes("application/json")
 	@Produces("application/json")
-	public String getData(@PathParam("sid") String sid) {
+	public Response getAllStudents() {
 		MongoClient mongoClient;
 		String outStr = "";
 		try {
 			mongoClient = new MongoClient( "localhost" , 27017 );
 			DB db = mongoClient.getDB( "AttendanceDB" );
 	        System.out.println("AttendanceDB READ: Connect to database successfully");
-	        //boolean auth = db.authenticate(myUserName, myPassword);
-	        //System.out.println("Authentication: "+auth);
+	        DBCollection collection = db.getCollection("studentColl");
+			
+			DBCursor cursor = collection.find();
+			
+			if(cursor.count() == 0){
+				return Response.status(404).entity("").build();
+			}
+			outStr = "[";
+			while(cursor.hasNext()) {
+				outStr += cursor.next().toString();
+				if(cursor.hasNext()){
+					outStr += ",";
+				}
+			}
+			int endIndex = outStr.length()-1;
+			outStr.substring(0, endIndex);
+			outStr += "]";
+			System.out.println("Match: " + outStr);
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return Response.status(200).entity(getPrettyJson(outStr)).build();
+	}
+	
+	@Path("student/{sid}")
+	@GET
+	@Consumes("application/json")
+	@Produces("application/json")
+	public Response getStudentData(@PathParam("sid") String sid) {
+		MongoClient mongoClient;
+		String outStr = "";
+		try {
+			mongoClient = new MongoClient( "localhost" , 27017 );
+			DB db = mongoClient.getDB( "AttendanceDB" );
+	        System.out.println("AttendanceDB READ: Connect to database successfully");
 	        DBCollection collection = db.getCollection("studentColl");
 			
 			BasicDBObject whereQuery = new BasicDBObject();
 			whereQuery.put("sid", sid);
 			DBCursor cursor = collection.find(whereQuery);
+			
+			if(cursor.count() == 0){
+				return Response.status(404).entity("").build();
+			}
 	
 			while(cursor.hasNext()) {
 				outStr += cursor.next().toString();
-			    //System.out.println("Match: " +cursor.next());
 			}
 			System.out.println("Match: " + outStr);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        // Now connect to your databases
 		
-		return getPrettyJson(outStr);
+		return Response.status(200).entity(getPrettyJson(outStr)).build();
 	}
- 
-	@Path("student/{sid}")
-	@POST
-	//\@Produces("application/json")
+	
+	@Path("student/device/{deviceId}")
+	@GET
 	@Consumes("application/json")
-	public Response doPost(InputStream incomingData) {
-		//String url = "http://api.wunderground.com/api/91e0c260e0e5b86c/conditions/q/" + sid +".json";
-		//String jsonResponse = getJsonData(url);
-		//String jsonOutput = processConditionData(jsonResponse);
+	@Produces("application/json")
+	public Response getStudentByDeviceId(@PathParam("deviceId") String deviceId) {
+		MongoClient mongoClient;
+		String outStr = "";
+		try {
+			mongoClient = new MongoClient( "localhost" , 27017 );
+			DB db = mongoClient.getDB( "AttendanceDB" );
+	        System.out.println("AttendanceDB READ: Connect to database successfully");
+	        DBCollection collection = db.getCollection("studentColl");
+			
+			BasicDBObject whereQuery = new BasicDBObject();
+			whereQuery.put("device_id", deviceId);
+			DBCursor cursor = collection.find(whereQuery);
+			
+			if(cursor.count() == 0){
+				return Response.status(404).entity("").build();
+			}
+	
+			while(cursor.hasNext()) {
+				outStr += cursor.next().toString();
+			}
+			System.out.println("Match: " + outStr);
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return Response.status(200).entity(getPrettyJson(outStr)).build();
+	}
+	
+	@Path("student/register-student/{sid}")
+	@GET
+	@Consumes("application/json")
+	@Produces("application/json")
+	public Response doPostRegistration(InputStream incomingData) {
 		String dataIncoming = getIncomingData(incomingData);
 		String result1;
-//		try {
-//			result1 = java.net.URLDecoder.decode(dataIncoming, "UTF-8");
-//			result1 = result1.substring(9);
-//			System.out.println("json str: "+ result1);
-//		} catch (UnsupportedEncodingException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-	
-		
-		 
-       
-		//JSONObject jsonObj = new JSONObject(getIncomingData(incomingData));
-		
 		String outStr = "";
-		//JSONParser parser = new JSONParser();
-		//ObjectMapper mapper = new ObjectMapper();
 		try {
 			result1 = java.net.URLDecoder.decode(dataIncoming, "UTF-8");
 			result1 = result1.substring(9);
@@ -104,14 +150,13 @@ public class AutomaticClassAttendanceSystem {
 			JSONObject jsonObject = (JSONObject) obj;
 			
 			System.out.println("json Obj: "+ jsonObject);
-         // To connect to mongodb server
+			// To connect to mongodb server
 	        MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
 				
 	         // Now connect to your databases
 	        DB db = mongoClient.getDB( "AttendanceDB" );
 	        System.out.println("Geolookup: Connect to database successfully");
-	         //boolean auth = db.authenticate(myUserName, myPassword);
-	         //System.out.println("Authentication: "+auth);
+
 	        DBCollection collection = db.getCollection("studentColl");
 	        System.out.println("Creating BasicDBObject for Student POST...");
 	     	BasicDBObject document = new BasicDBObject(); 
@@ -120,40 +165,84 @@ public class AutomaticClassAttendanceSystem {
 	     	String last = (String) jsonObject.get("last");
 	     	String sid = (String) jsonObject.get("sid");
 	     	String email = (String) jsonObject.get("email");
-	     	String phoneId = (String) jsonObject.get("phoneId");
-	     	
-//	        document.put("first", "Jelson");
-//	        document.put("last", "Santos");
-//	        document.put("sid", "1234");
+	     	String device_id = (String) jsonObject.get("device_id");
+
 	        document.put("first", first);
 	        document.put("last", last);
 	        document.put("sid", sid);
 	        document.put("email", email);
-	        document.put("phoneId", phoneId);
+	        document.put("device_id", device_id);
 	        collection.insert(document);
 
 	     	DBCursor cursorDoc = collection.find();
-	     	 //outStr = collection.toString();
 	     	while (cursorDoc.hasNext()) {
 	     		outStr += cursorDoc.next().toString();
 	     		//System.out.println(outStr);
 	     	}
 	     	System.out.println(outStr);
-	     	//collection.remove(new BasicDBObject());
             
         } catch (Exception e) {
         	System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             e.printStackTrace();
         }
-
-
-	
+		return Response.status(200).entity(getPrettyJson(outStr)).build();
+	}
  
-		String result = "@Produces(\"application/json\") Output: \n\nF to C Converter Output: \n\n";
-		//return Response.status(200).entity(result).build();
-		//return result;
-		return Response.status(201).entity(result).build();
+	@Path("student/register/{sid}")
+	@POST
+	@Consumes("application/json")
+	@Produces("application/json")
+	public Response doPost(InputStream incomingData) {
+		String dataIncoming = getIncomingData(incomingData);
+		String result1;
+		String outStr = "";
+		try {
+			result1 = java.net.URLDecoder.decode(dataIncoming, "UTF-8");
+			result1 = result1.substring(9);
+			System.out.println("json str: "+ result1);
+			
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(result1);
+			JSONObject jsonObject = (JSONObject) obj;
+			
+			System.out.println("json Obj: "+ jsonObject);
+			// To connect to mongodb server
+	        MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+				
+	         // Now connect to your databases
+	        DB db = mongoClient.getDB( "AttendanceDB" );
+	        System.out.println("Geolookup: Connect to database successfully");
 
+	        DBCollection collection = db.getCollection("studentColl");
+	        System.out.println("Creating BasicDBObject for Student POST...");
+	     	BasicDBObject document = new BasicDBObject(); 
+	     	
+	     	String first = (String) jsonObject.get("first");
+	     	String last = (String) jsonObject.get("last");
+	     	String sid = (String) jsonObject.get("sid");
+	     	String email = (String) jsonObject.get("email");
+	     	String device_id = (String) jsonObject.get("device_id");
+
+	        document.put("first", first);
+	        document.put("last", last);
+	        document.put("sid", sid);
+	        document.put("email", email);
+	        document.put("device_id", device_id);
+	        collection.insert(document);
+
+	     	DBCursor cursorDoc = collection.find();
+	     	while (cursorDoc.hasNext()) {
+	     		outStr += cursorDoc.next().toString();
+	     		//System.out.println(outStr);
+	     	}
+	     	System.out.println(outStr);
+            
+        } catch (Exception e) {
+        	System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            e.printStackTrace();
+        }
+		
+		return Response.status(201).entity(outStr).build();
 	}
 	
 	@Path("student/{sid}")
@@ -166,49 +255,99 @@ public class AutomaticClassAttendanceSystem {
 			mongoClient = new MongoClient( "localhost" , 27017 );
 			DB db = mongoClient.getDB( "AttendanceDB" );
 	        System.out.println("AttendanceDB Delete: Connect to database successfully");
-	        //boolean auth = db.authenticate(myUserName, myPassword);
-	        //System.out.println("Authentication: "+auth);
 	        DBCollection collection = db.getCollection("studentColl");
 			
 			BasicDBObject whereQuery = new BasicDBObject();
 			whereQuery.put("sid", sid);
-			//DBCursor cursor = collection.find(whereQuery);
 			collection.remove(whereQuery);
-	
-//			while(cursor.hasNext()) {
-//				outStr += cursor.next().toString();
-//			    //System.out.println("Match: " +cursor.next());
-//			}
-			//System.out.println("Match: " + outStr);
 			outStr = "Record SID: " + sid + " was deleted succesfully.";
 			System.out.println(outStr);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        // Now connect to your databases
-		
+
 		return Response.status(204).entity(outStr).build();
 	}
 	
-	public static DBObject getDataFromDB() {
-		MongoClient mongoClient;
+	@Path("student/{sid}")
+	@PUT
+	@Consumes("application/json")
+	public Response doPut(InputStream incomingData) {
+		String dataIncoming = getIncomingData(incomingData);
+		String result1;
 		String outStr = "";
+
+		try {
+			result1 = java.net.URLDecoder.decode(dataIncoming, "UTF-8");
+			result1 = result1.substring(9);
+			System.out.println("json str: "+ result1);
+			
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(result1);
+			JSONObject jsonObject = (JSONObject) obj;
+			
+			System.out.println("json Obj: "+ jsonObject);
+			// To connect to mongodb server
+	        MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+				
+	         // Now connect to your databases
+	        DB db = mongoClient.getDB( "AttendanceDB" );
+	        System.out.println("AttendanceDB: Connect to database successfully");
+
+	        DBCollection collection = db.getCollection("studentColl");
+	        System.out.println("Updating BasicDBObject for student PUT...");
+	     	BasicDBObject document = new BasicDBObject();		
+            
+            String first = (String) jsonObject.get("first");
+	     	String last = (String) jsonObject.get("last");
+	     	String sid = (String) jsonObject.get("sid");
+	     	String email = (String) jsonObject.get("email");
+	     	String device_id = (String) jsonObject.get("device_id");
+            
+	     	document.put("first", first);
+	        document.put("last", last);
+	        document.put("sid", sid);
+	        document.put("email", email);
+	        document.put("device_id", device_id);
+	        
+	        BasicDBObject whereQuery = new BasicDBObject();
+			whereQuery.put("sid", sid);
+			collection.remove(whereQuery);
+	        
+			collection.insert(document);
+
+	     	DBCursor cursorDoc = collection.find(whereQuery);
+	     	while (cursorDoc.hasNext()) {
+	     		outStr += cursorDoc.next().toString();
+	     		//System.out.println(outStr);
+	     	}
+	     	System.out.println(outStr);
+            
+        } catch (Exception e) {
+        	System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            e.printStackTrace();
+        }
+
+		return Response.status(201).entity("").build();
+
+	}
+	
+	public static DBObject getDataFromDB(String device_id) {
+		MongoClient mongoClient;
 		
 		try {
 			mongoClient = new MongoClient( "localhost" , 27017 );
 			DB db = mongoClient.getDB( "AttendanceDB" );
 	        System.out.println("AttendanceDB READ: Connect to database successfully");
-	        //boolean auth = db.authenticate(myUserName, myPassword);
-	        //System.out.println("Authentication: "+auth);
+
 	        DBCollection collection = db.getCollection("studentColl");
 	        BasicDBObject whereQuery = new BasicDBObject();
-			whereQuery.put("phoneId", "123456789");
+			whereQuery.put("device_id", device_id);
 			DBCursor cursor = collection.find(whereQuery);
 			DBObject updateDocument = null;
 			updateDocument = cursor.next();
 			System.out.println("Match: " +updateDocument);
-			//System.out.println("Match: " + outStr);
 			return updateDocument;
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
@@ -219,16 +358,9 @@ public class AutomaticClassAttendanceSystem {
 	
 	public String getIncomingData(InputStream incomingData) {
 		StringBuilder strBuilder = new StringBuilder();
-		//JSONParser parser = new JSONParser();
 		try {
-			//InputStreamReader in = new InputStreamReader(incomingData);
-			//BufferedReader in = new BufferedReader(inStream);
-			//Object obj = parser.parse(new InputStreamReader(incomingData));
 			BufferedReader in = new BufferedReader(new InputStreamReader(incomingData));
-			//JSONObject jsonObject = (JSONObject) obj;
 
-			//String name = (String) jsonObject.get("jsonData");
-			//System.out.println("FIRST: " +name);
 			String line = null;
 			while ((line = in.readLine()) != null) {
 				System.out.println("Line - " +line);
@@ -238,9 +370,7 @@ public class AutomaticClassAttendanceSystem {
 			System.out.println("Error Parsing: - ");
 		}
 		System.out.println("Data Received: " + strBuilder.toString());
- 
-		// return HTTP response 200 in case of success
-		//return Response.status(200).entity(crunchifyBuilder.toString()).build();
+
 		return strBuilder.toString();
 	}
 

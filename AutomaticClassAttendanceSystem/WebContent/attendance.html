@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Teacher page</title>
+<link rel="stylesheet" type="text/css"
+	href="/AutomaticClassAttendanceSystem/css/table.css">
+<script src="http://maps.googleapis.com/maps/api/js">
+	
+</script>
+<link rel="stylesheet"
+	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+	<div align="center">
+		<h3>Select Date:</h3>
+		<form>
+			<input id="datepicker" value="" /> <input type="button" id="calcBtn"
+				value="Get Data">
+		</form>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Student Id</th>
+				<th>Email</th>
+				<th>Device Id</th>
+				<th>First Time In</th>
+				<th>Last Time In</th>
+				<th>Last Time Out</th>
+				<th>Currently Checked In</th>
+			</tr>
+		</thead>
+		<tbody id="sensorsList">
+		</tbody>
+	</table>
+	<br>
+	<br>
+	<div id="googleMap" style="width: 600px; height: 450px;"></div>
+</body>
+<script>
+	$(window).load(function() {
+		getTheData();
+	});
+	function getTheData() {
+		var xmlhttp = new XMLHttpRequest();
+		//var url = "http://localhost:8080/MobileSensorCloud/sensor/data/geolookup/city/CA/San_Jose";
+		var url = "http://ec2-54-191-40-122.us-west-2.compute.amazonaws.com:8080/AutomaticClassAttendanceSystem/sensor/class/section/devices";
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				var arr = JSON.parse(xmlhttp.responseText);
+				console.log(arr);
+				console.log(arr.length)
+				//console.log(arr.nearby_weather_stations.pws.station.length)
+
+				//myFunction(arr.nearby_weather_stations.pws.station);
+
+				var i;
+				var markers = new Array();
+				for (i = 0; i < arr.length; i++) {
+					//out += '<a href="' + arr[i].url + '">' + 
+					//arr[i].display + '</a><br>';
+					newTag = document.createElement('tr');
+					newTag.setAttribute('id', arr[i].sid);
+
+					inTextfName = "<td><strong>" + arr[i].first
+							+ "</strong></td>";
+					inTextlName = "<td>" + arr[i].last + "</td>";
+					inTextSid = "<td>" + arr[i].sid + "</td>";
+					inTextEmail = "<td>" + arr[i].email + "</td>";
+					inTextDid = "<td>" + arr[i].device_id + "</td>";
+					inTextFTin = "<td>" + arr[i].firstTimeIn + "</td>";
+					inTextTin = "<td>" + arr[i].timeIn + "</td>";
+					inTextTout = "<td>" + arr[i].timeOut + "</td>";
+					if (arr[i].checked_in == "true") {
+						inTextCheckIn = "<td><img src=\"1462964629_checked_checkbox.png\" alt=\"True\" height=\"42\" width=\"42\"></td>";
+					} else {
+						inTextCheckIn = "<td><img src=\"1462964622_unchecked_checkbox.png\" alt=\"False\" height=\"42\" width=\"42\"></td>";
+					}
+					inText = inTextfName + inTextlName + inTextSid
+							+ inTextEmail + inTextDid + inTextFTin + inTextTin
+							+ inTextTout + inTextCheckIn;
+					//console.log(inText);
+					newTag.innerHTML = inText;
+					document.getElementById("sensorsList").appendChild(newTag);
+
+				}
+
+			}
+		};
+		xmlhttp.open("GET", url, true);
+		xmlhttp.send();
+	};
+</script>
+<script>
+	$(document).ready(function() {
+		$("#datepicker").datepicker();
+		$("#datepicker").datepicker("setDate", new Date());
+	});
+
+	$('#calcBtn').click(function() {
+		callServlet();
+	});
+
+	function callServlet() {
+		var selectedDate = $("#datepicker").val();
+		console.log(selectedDate);
+		var url = 'http://ec2-54-191-40-122.us-west-2.compute.amazonaws.com:8080/AutomaticClassAttendanceSystem/sensor/class/section/'
+				+ selectedDate;
+		var xmlhttp = new XMLHttpRequest();
+		//var url = "http://localhost:8080/MobileSensorCloud/sensor/data/geolookup/city/CA/San_Jose";
+		//var url = "http://ec2-54-191-40-122.us-west-2.compute.amazonaws.com:8080/AutomaticClassAttendanceSystem/sensor/class/section/devices";
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				var arr = JSON.parse(xmlhttp.responseText);
+				console.log(arr);
+				console.log(arr.length)
+				//console.log(arr.nearby_weather_stations.pws.station.length)
+				var list = document.getElementById("sensorsList");
+				while(list.hasChildNodes()) {
+					list.removeChild(list.firstChild);
+				}
+				//myFunction(arr.nearby_weather_stations.pws.station);
+
+				var i;
+				var markers = new Array();
+				for (i = 0; i < arr.length; i++) {
+					//out += '<a href="' + arr[i].url + '">' + 
+					//arr[i].display + '</a><br>';
+					newTag = document.createElement('tr');
+					newTag.setAttribute('id', arr[i].sid);
+
+					inTextfName = "<td><strong>" + arr[i].first
+							+ "</strong></td>";
+					inTextlName = "<td>" + arr[i].last + "</td>";
+					inTextSid = "<td>" + arr[i].sid + "</td>";
+					inTextEmail = "<td>" + arr[i].email + "</td>";
+					inTextDid = "<td>" + arr[i].device_id + "</td>";
+					inTextFTin = "<td>" + arr[i].firstTimeIn + "</td>";
+					inTextTin = "<td>" + arr[i].timeIn + "</td>";
+					inTextTout = "<td>" + arr[i].timeOut + "</td>";
+					if (arr[i].checked_in == "true") {
+						inTextCheckIn = "<td><img src=\"1462964629_checked_checkbox.png\" alt=\"True\" height=\"42\" width=\"42\"></td>";
+					} else {
+						inTextCheckIn = "<td><img src=\"1462964622_unchecked_checkbox.png\" alt=\"False\" height=\"42\" width=\"42\"></td>";
+					}
+					inText = inTextfName + inTextlName + inTextSid
+							+ inTextEmail + inTextDid + inTextFTin + inTextTin
+							+ inTextTout + inTextCheckIn;
+					//console.log(inText);
+					newTag.innerHTML = inText;
+					document.getElementById("sensorsList").appendChild(newTag);
+
+				}
+
+			}
+		};
+		xmlhttp.open("GET", url, true);
+		xmlhttp.send();
+	};
+</script>
+</html>
