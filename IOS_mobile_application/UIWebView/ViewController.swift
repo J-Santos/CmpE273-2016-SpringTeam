@@ -12,7 +12,7 @@ import Foundation
 
 
 class ViewController: UIViewController, UIWebViewDelegate, CBCentralManagerDelegate {
-
+    
     @IBOutlet var webView: UIWebView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     //@IBOutlet weak var tableView: UITableView!
@@ -100,7 +100,7 @@ class ViewController: UIViewController, UIWebViewDelegate, CBCentralManagerDeleg
             //sleep(10)
             let id = UIDevice.currentDevice().identifierForVendor!.UUIDString
             print("Device ID: "+id)
-    
+            
             peripherals.append(peripheral)
             
         }
@@ -119,7 +119,7 @@ class ViewController: UIViewController, UIWebViewDelegate, CBCentralManagerDeleg
             }
             
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != http_code {           // check for http errors
-                print("statusCode EXIST should be 200, but is \(httpStatus.statusCode) http_code is \(http_code)")
+                //print("statusCode EXIST should be 200, but is \(httpStatus.statusCode) http_code is \(http_code)")
                 print("response = \(response)")
                 output = false
             }
@@ -144,7 +144,7 @@ class ViewController: UIViewController, UIWebViewDelegate, CBCentralManagerDeleg
         print("Peripheral connected: " + peripheral.name! + " at " + utcTimeZoneStr)
         let device_id = UIDevice.currentDevice().identifierForVendor!.UUIDString
         let get_url = "http://ec2-54-191-40-122.us-west-2.compute.amazonaws.com:8080/AutomaticClassAttendanceSystem/sensor/class/section/"+device_id
-
+        
         
         let post_exist = doesItExist(get_url, http_code: 404)
         let put_exist = doesItExist(get_url, http_code: 200)
@@ -156,7 +156,7 @@ class ViewController: UIViewController, UIWebViewDelegate, CBCentralManagerDeleg
             let jsonFifth = "\"}"
             let jsonString = jsonFirst+device_id+jsonThird+utcTimeZoneStr+jsonFifth
             makePutRequest(put_url, jsonString: jsonString)
-
+            
         }
         if(post_exist){
             let jsonFirst = "myData = {\"device_id\":\""
@@ -184,7 +184,7 @@ class ViewController: UIViewController, UIWebViewDelegate, CBCentralManagerDeleg
             }
             
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
-                print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                //print("statusCode should be 201, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
                 //output = false
             }
@@ -209,7 +209,7 @@ class ViewController: UIViewController, UIWebViewDelegate, CBCentralManagerDeleg
             }
             
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
-                print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                //print("statusCode should be 201, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
             }
             
@@ -246,7 +246,7 @@ class ViewController: UIViewController, UIWebViewDelegate, CBCentralManagerDeleg
             makePutRequest(put_url, jsonString: jsonString)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
